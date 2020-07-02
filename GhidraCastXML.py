@@ -278,10 +278,11 @@ class GhidraCastXMLLoader:
 
 
     def getNameForElement(self, element):
-        try:
-            return self.getNamespaceById(element.attrib["context"]) + element.attrib["name"]
-        except KeyError:
-            return element.attrib["name"]
+        return element.attrib["name"]
+        # try:
+        #     return self.getNamespaceById(element.attrib["context"]) + element.attrib["name"]
+        # except KeyError:
+        #     return element.attrib["name"]
 
 
     def getFileFromId(self, id):
