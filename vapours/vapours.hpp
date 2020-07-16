@@ -45,7 +45,9 @@ struct Thread {
 #define ALWAYS_INLINE
 #define NON_COPYABLE(c)
 #define NON_MOVEABLE(c)
+#define R_ABORT_UNLESS(...)
 #define AMS_ASSERT(...)
+#define AMS_ABORT_UNLESS(...)
 #define static_assert(...)
 
 #define INVALID_HANDLE ((Handle) 0)

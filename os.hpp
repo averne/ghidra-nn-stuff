@@ -17,5 +17,6 @@
 #pragma once
 
 #include <os/os_event.hpp>
+#include <os/os_system_event.hpp>
 #include <os/os_mutex.hpp>
 #include <os/os_thread.hpp>
