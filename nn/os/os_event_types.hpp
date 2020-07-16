@@ -16,8 +16,8 @@
 
 #pragma once
 #include <vapours.hpp>
-#include <os/impl/os_internal_critical_section.hpp>
-#include <os/impl/os_internal_condition_variable.hpp>
+#include <nn/os/impl/os_internal_critical_section.hpp>
+#include <nn/os/impl/os_internal_condition_variable.hpp>
 
 namespace nn::os {
 

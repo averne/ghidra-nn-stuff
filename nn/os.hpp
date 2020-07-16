@@ -13,9 +13,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#pragma once
-#include <vapours.hpp>
-#include <os/os_thread_common.hpp>
-#include <os/os_thread_types.hpp>
-#include <os/os_thread_api.hpp>
 
+#pragma once
+
+#include <nn/os/os_event.hpp>
+#include <nn/os/os_system_event.hpp>
+#include <nn/os/os_mutex.hpp>
+#include <nn/os/os_thread.hpp>

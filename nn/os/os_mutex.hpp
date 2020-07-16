@@ -15,9 +15,9 @@
  */
 
 #pragma once
-#include <os/os_mutex_common.hpp>
-#include <os/os_mutex_types.hpp>
-#include <os/os_mutex_api.hpp>
+#include <nn/os/os_mutex_common.hpp>
+#include <nn/os/os_mutex_types.hpp>
+#include <nn/os/os_mutex_api.hpp>
 
 namespace nn::os {
 

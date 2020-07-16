@@ -15,8 +15,20 @@
  */
 
 #pragma once
+#include <vapours.hpp>
+#include <nn/os/os_mutex_common.hpp>
 
-#include <os/os_event.hpp>
-#include <os/os_system_event.hpp>
-#include <os/os_mutex.hpp>
-#include <os/os_thread.hpp>
+namespace nn::os {
+
+    struct MutexType;
+
+    void InitializeMutex(MutexType *mutex, bool recursive, int lock_level);
+    void FinalizeMutex(MutexType *mutex);
+
+    void LockMutex(MutexType *mutex);
+    bool TryLockMutex(MutexType *mutex);
+    void UnlockMutex(MutexType *mutex);
+
+    bool IsMutexLockedByCurrentThread(const MutexType *mutex);
+
+}

@@ -15,18 +15,28 @@
  */
 
 #pragma once
-#include <os/os_common_types.hpp>
-#include <os/os_memory_common.hpp>
+#include <vapours.hpp>
+#include <nn/os/impl/os_internal_critical_section.hpp>
 
 namespace nn::os {
 
-    struct TlsSlot {
-        u32 _value;
+    struct ThreadType;
+
+    struct MutexType {
+        enum State {
+            State_NotInitialized = 0,
+            State_Initialized    = 1,
+        };
+
+        u8 state;
+        bool is_recursive;
+        s32 lock_level;
+        s32 nest_count;
+        ThreadType *owner_thread;
+        union {
+            s32 _arr[sizeof(impl::InternalCriticalSectionStorage) / sizeof(s32)];
+            impl::InternalCriticalSectionStorage _storage;
+        };
     };
-
-    using TlsDestructor = void (*)(uintptr_t arg);
-
-    constexpr inline size_t TlsSlotCountMax = 16;
-    constexpr inline size_t SdkTlsSlotCountMax = 16;
 
 }

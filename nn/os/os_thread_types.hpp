@@ -16,11 +16,11 @@
 
 #pragma once
 #include <vapours.hpp>
-#include <os/os_thread_common.hpp>
-#include <os/os_thread_local_storage_common.hpp>
-#include <os/os_thread_local_storage_api.hpp>
-#include <os/impl/os_internal_critical_section.hpp>
-#include <os/impl/os_internal_condition_variable.hpp>
+#include <nn/os/os_thread_common.hpp>
+#include <nn/os/os_thread_local_storage_common.hpp>
+#include <nn/os/os_thread_local_storage_api.hpp>
+#include <nn/os/impl/os_internal_critical_section.hpp>
+#include <nn/os/impl/os_internal_condition_variable.hpp>
 
 namespace nn::os {
 

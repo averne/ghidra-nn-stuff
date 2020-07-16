@@ -15,9 +15,9 @@
  */
 
 #pragma once
-#include <os/os_event_common.hpp>
-#include <os/os_system_event_types.hpp>
-#include <os/os_system_event_api.hpp>
+#include <nn/os/os_event_common.hpp>
+#include <nn/os/os_system_event_types.hpp>
+#include <nn/os/os_system_event_api.hpp>
 
 namespace nn::os {
 

@@ -18,7 +18,7 @@
 #include <vapours.hpp>
 
 #if defined(ATMOSPHERE_OS_HORIZON)
-    #include <os/impl/os_internal_critical_section_impl.os.horizon.hpp>
+    #include <nn/os/impl/os_internal_critical_section_impl.os.horizon.hpp>
 #else
     #error "Unknown OS for nn::os::impl::InternalCriticalSectionImpl"
 #endif

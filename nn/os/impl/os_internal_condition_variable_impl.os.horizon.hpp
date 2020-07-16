@@ -16,19 +16,28 @@
 
 #pragma once
 #include <vapours.hpp>
-#include <os/os_mutex_common.hpp>
+#include <nn/os/os_condition_variable_common.hpp>
+#include <nn/os/impl/os_internal_critical_section.hpp>
 
-namespace nn::os {
+namespace nn::os::impl {
 
-    struct MutexType;
+    class TimeoutHelper;
 
-    void InitializeMutex(MutexType *mutex, bool recursive, int lock_level);
-    void FinalizeMutex(MutexType *mutex);
+    class InternalConditionVariableImpl {
+        private:
+            u32 value;
+        public:
+            constexpr InternalConditionVariableImpl() : value(0) { /* ... */ }
 
-    void LockMutex(MutexType *mutex);
-    bool TryLockMutex(MutexType *mutex);
-    void UnlockMutex(MutexType *mutex);
+            constexpr void Initialize() {
+                this->value = 0;
+            }
 
-    bool IsMutexLockedByCurrentThread(const MutexType *mutex);
+            void Signal();
+            void Broadcast();
+
+            void Wait(InternalCriticalSection *cs);
+            ConditionVariableStatus TimedWait(InternalCriticalSection *cs, const TimeoutHelper &timeout_helper);
+    };
 
 }

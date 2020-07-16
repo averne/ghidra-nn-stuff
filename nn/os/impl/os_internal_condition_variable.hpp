@@ -16,10 +16,10 @@
 
 #pragma once
 #include <vapours.hpp>
-#include <os/os_condition_variable_common.hpp>
+#include <nn/os/os_condition_variable_common.hpp>
 
 #if defined(ATMOSPHERE_OS_HORIZON)
-    #include <os/impl/os_internal_condition_variable_impl.os.horizon.hpp>
+    #include <nn/os/impl/os_internal_condition_variable_impl.os.horizon.hpp>
 #else
     #error "Unknown OS for nn::os::impl::InternalConditionVariableImpl"
 #endif

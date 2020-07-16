@@ -16,9 +16,9 @@
 
 #pragma once
 #include <vapours.hpp>
-#include <os/os_event_common.hpp>
-#include <os/os_event_types.hpp>
-#include <os/os_event_api.hpp>
+#include <nn/os/os_event_common.hpp>
+#include <nn/os/os_event_types.hpp>
+#include <nn/os/os_event_api.hpp>
 
 namespace nn::os {
 

@@ -15,23 +15,18 @@
  */
 
 #pragma once
-#include <vapours.hpp>
-#include <os/os_event_common.hpp>
+#include <nn/os/os_common_types.hpp>
+#include <nn/os/os_memory_common.hpp>
 
 namespace nn::os {
 
-    struct EventType;
-    struct WaitableHolderType;
+    struct TlsSlot {
+        u32 _value;
+    };
 
-    void InitializeEvent(EventType *event, bool signaled, EventClearMode clear_mode);
-    void FinalizeEvent(EventType *event);
+    using TlsDestructor = void (*)(uintptr_t arg);
 
-    void SignalEvent(EventType *event);
-    void WaitEvent(EventType *event);
-    bool TryWaitEvent(EventType *event);
-    bool TimedWaitEvent(EventType *event, TimeSpan timeout);
-    void ClearEvent(EventType *event);
-
-    void InitializeWaitableHolder(WaitableHolderType *waitable_holder, EventType *event);
+    constexpr inline size_t TlsSlotCountMax = 16;
+    constexpr inline size_t SdkTlsSlotCountMax = 16;
 
 }

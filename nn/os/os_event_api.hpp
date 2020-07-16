@@ -16,27 +16,22 @@
 
 #pragma once
 #include <vapours.hpp>
-#include <os/impl/os_internal_critical_section.hpp>
+#include <nn/os/os_event_common.hpp>
 
 namespace nn::os {
 
-    struct ThreadType;
+    struct EventType;
+    struct WaitableHolderType;
 
-    struct MutexType {
-        enum State {
-            State_NotInitialized = 0,
-            State_Initialized    = 1,
-        };
+    void InitializeEvent(EventType *event, bool signaled, EventClearMode clear_mode);
+    void FinalizeEvent(EventType *event);
 
-        u8 state;
-        bool is_recursive;
-        s32 lock_level;
-        s32 nest_count;
-        ThreadType *owner_thread;
-        union {
-            s32 _arr[sizeof(impl::InternalCriticalSectionStorage) / sizeof(s32)];
-            impl::InternalCriticalSectionStorage _storage;
-        };
-    };
+    void SignalEvent(EventType *event);
+    void WaitEvent(EventType *event);
+    bool TryWaitEvent(EventType *event);
+    bool TimedWaitEvent(EventType *event, TimeSpan timeout);
+    void ClearEvent(EventType *event);
+
+    void InitializeWaitableHolder(WaitableHolderType *waitable_holder, EventType *event);
 
 }

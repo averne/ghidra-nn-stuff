@@ -13,31 +13,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #pragma once
 #include <vapours.hpp>
-#include <os/os_condition_variable_common.hpp>
-#include <os/impl/os_internal_critical_section.hpp>
+#include <nn/os/os_thread_common.hpp>
+#include <nn/os/os_thread_types.hpp>
+#include <nn/os/os_thread_api.hpp>
 
-namespace nn::os::impl {
-
-    class TimeoutHelper;
-
-    class InternalConditionVariableImpl {
-        private:
-            u32 value;
-        public:
-            constexpr InternalConditionVariableImpl() : value(0) { /* ... */ }
-
-            constexpr void Initialize() {
-                this->value = 0;
-            }
-
-            void Signal();
-            void Broadcast();
-
-            void Wait(InternalCriticalSection *cs);
-            ConditionVariableStatus TimedWait(InternalCriticalSection *cs, const TimeoutHelper &timeout_helper);
-    };
-
-}

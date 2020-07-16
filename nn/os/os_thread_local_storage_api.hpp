@@ -15,9 +15,9 @@
  */
 
 #pragma once
-#include <os/os_common_types.hpp>
-#include <os/os_memory_common.hpp>
-#include <os/os_thread_local_storage_common.hpp>
+#include <nn/os/os_common_types.hpp>
+#include <nn/os/os_memory_common.hpp>
+#include <nn/os/os_thread_local_storage_common.hpp>
 
 namespace nn::os {
 
