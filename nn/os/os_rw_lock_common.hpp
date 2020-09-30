@@ -13,12 +13,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #pragma once
+#include <vapours.hpp>
 
-#include <nn/os/os_event.hpp>
-#include <nn/os/os_system_event.hpp>
-#include <nn/os/os_message_queue.hpp>
-#include <nn/os/os_mutex.hpp>
-#include <nn/os/os_rw_lock.hpp>
-#include <nn/os/os_thread.hpp>
+namespace nn::os {
+
+    constexpr inline s32 ReadWriteLockCountMax       = (1 << (BITSIZEOF(u16) - 1)) - 1;
+    constexpr inline s32 ReadWriteLockWaiterCountMax = (1 << BITSIZEOF(u8)) - 1;
+
+}

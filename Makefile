@@ -16,4 +16,4 @@ all: $(TARGETS)
 	@castxml $(CXXFLAGS) $(DEFINES) $(INCLUDES) --castxml-gccxml $< -o $@
 
 clean:
-	@rm $(TARGETS)
+	@rm $(TARGETS) || :

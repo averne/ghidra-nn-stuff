@@ -82,4 +82,5 @@ struct TypedStorage {
 
 #include <vapours/literals.hpp>
 #include <vapours/svc/svc_common.hpp>
+#include <vapours/util/util_bitpack.hpp>
 #include <vapours/util/util_intrusive_list.hpp>
