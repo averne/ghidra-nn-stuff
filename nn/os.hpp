@@ -22,3 +22,4 @@
 #include <nn/os/os_mutex.hpp>
 #include <nn/os/os_rw_lock.hpp>
 #include <nn/os/os_thread.hpp>
+#include <nn/os/os_timer_event.hpp>
