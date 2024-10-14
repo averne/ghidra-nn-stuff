@@ -32,6 +32,7 @@ for i, (addr, name) in enumerate(syms):
         f = createFunction(addr, name)
     if f is None:
         failed.append((addr, name))
+        continue
 
     res, demangled = set_demangled_name(addr, name)
     if demangled is None:                       # Demangle failed, likely because the name was not mangled

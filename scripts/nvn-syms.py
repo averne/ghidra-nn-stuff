@@ -8,9 +8,13 @@ fptr_addr = askAddress("Function table address", "")
 
 string = getDataAt(str_addr)
 while string is not None:
+    name = "nvn" + string.value
     func_addr = getDataAt(fptr_addr).value
     func = func_mgr.getFunctionContaining(func_addr)
-    func.setName("nvn" + string.value, SourceType.ANALYSIS)
+    if func is not None:
+        func.setName(name, SourceType.ANALYSIS)
+    else:
+        createFunction(func_addr, name)
 
     print("Renamed " + "nvn" + string.value)
 
